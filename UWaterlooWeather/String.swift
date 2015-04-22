@@ -26,7 +26,7 @@ public extension String {
     }
     
     
-    //Trim whitespace and return a float
+    //Trim whitespace and return an optional Float
     func trimAndToFloat() -> Float? {
         let trimmedString = self.trim()
         let number = NSNumberFormatter().numberFromString(trimmedString!)

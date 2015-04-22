@@ -25,10 +25,17 @@ class WeatherDataParser : NSObject {
     
     func getData() {
         let task = NSURLSession.sharedSession().dataTaskWithURL(sourceURL) {(data, response, error) in
-            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            //println(NSString(data: data, encoding: NSUTF8StringEncoding))
             let xmlData = SWXMLHash.parse(data);
-            println(xmlData)
+            //println(xmlData)
             let weatherData = WeatherObservation(xmlData:xmlData);
+            println("Weather Data available")
+            dispatch_async(dispatch_get_main_queue(),{
+                //Post a notification that new weather data is now available on the main thread.
+                println("Weather Data notification posted")
+                let weatherNotification = NSNotification(name: Constants.Notifications.kWeatherDataAvailable, object: weatherData)
+                NSNotificationCenter.defaultCenter().postNotification(weatherNotification)
+            });
         }
         
         task.resume()
@@ -87,6 +94,7 @@ class WeatherObservation {
     }
     
     init (xmlData: XMLIndexer) {
+        println(xmlData)
         let currentObs = xmlData["current_observation"]
         dataSource = currentObs["credit"].element!.text!.trim()
         let urlString = currentObs["credit_URL"].element!.text!.trim()

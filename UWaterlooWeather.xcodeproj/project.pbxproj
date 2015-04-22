@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02CA8F884702B7A365C0566A /* Pods_UWaterlooWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FEFB3D874DA9A1308A854 /* Pods_UWaterlooWeatherTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		377A1D511AE6DA4100C5640E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A1D501AE6DA4100C5640E /* String.swift */; };
+		37CA39F01AE822B60073F6DA /* meteocons.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37CA39EF1AE822B60073F6DA /* meteocons.otf */; };
+		37CA39F61AE829560073F6DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CA39F51AE829560073F6DA /* Constants.swift */; };
 		37D354EE1AE5844A00795880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D354ED1AE5844A00795880 /* AppDelegate.swift */; };
 		37D354F01AE5844A00795880 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D354EF1AE5844A00795880 /* ViewController.swift */; };
 		37D354F31AE5844A00795880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37D354F11AE5844A00795880 /* Main.storyboard */; };
@@ -29,12 +31,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		377A1D661AE6F31300C5640E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		004F760D233904E06DE2A472 /* Pods_UWaterlooWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UWaterlooWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EF598DA188C38F76E97729 /* Pods-UWaterlooWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UWaterlooWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UWaterlooWeather/Pods-UWaterlooWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		1A1FEFB3D874DA9A1308A854 /* Pods_UWaterlooWeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UWaterlooWeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24847205682426D4D8ABAE50 /* Pods-UWaterlooWeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UWaterlooWeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UWaterlooWeatherTests/Pods-UWaterlooWeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		377A1D501AE6DA4100C5640E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		377A1D571AE6F31300C5640E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		37CA39EF1AE822B60073F6DA /* meteocons.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = meteocons.otf; path = Fonts/meteocons.otf; sourceTree = "<group>"; };
+		37CA39F51AE829560073F6DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		37D354E81AE5844A00795880 /* UWaterlooWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWaterlooWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D354EC1AE5844A00795880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37D354ED1AE5844A00795880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37CA39EE1AE8229F0073F6DA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				37CA39EF1AE822B60073F6DA /* meteocons.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		37D354DF1AE5844A00795880 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +119,7 @@
 		37D354EA1AE5844A00795880 /* UWaterlooWeather */ = {
 			isa = PBXGroup;
 			children = (
+				37CA39EE1AE8229F0073F6DA /* Fonts */,
 				37D354ED1AE5844A00795880 /* AppDelegate.swift */,
 				37D354EF1AE5844A00795880 /* ViewController.swift */,
 				37D354F11AE5844A00795880 /* Main.storyboard */,
@@ -101,6 +128,7 @@
 				37D354EB1AE5844A00795880 /* Supporting Files */,
 				37D3550F1AE5A22E00795880 /* WeatherDataParser.swift */,
 				377A1D501AE6DA4100C5640E /* String.swift */,
+				37CA39F51AE829560073F6DA /* Constants.swift */,
 			);
 			path = UWaterlooWeather;
 			sourceTree = "<group>";
@@ -146,6 +174,7 @@
 			children = (
 				004F760D233904E06DE2A472 /* Pods_UWaterlooWeather.framework */,
 				1A1FEFB3D874DA9A1308A854 /* Pods_UWaterlooWeatherTests.framework */,
+				377A1D571AE6F31300C5640E /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +192,7 @@
 				37D354E61AE5844A00795880 /* Resources */,
 				FD780EA7F58080DA1300B361 /* Embed Pods Frameworks */,
 				4E54DD34FF736DDCB45D383B /* Copy Pods Resources */,
+				377A1D661AE6F31300C5640E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -237,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37D354F31AE5844A00795880 /* Main.storyboard in Resources */,
+				37CA39F01AE822B60073F6DA /* meteocons.otf in Resources */,
 				37D354F81AE5844A00795880 /* LaunchScreen.xib in Resources */,
 				37D354F51AE5844A00795880 /* Images.xcassets in Resources */,
 			);
@@ -349,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37CA39F61AE829560073F6DA /* Constants.swift in Sources */,
 				37D354F01AE5844A00795880 /* ViewController.swift in Sources */,
 				37D355101AE5A22E00795880 /* WeatherDataParser.swift in Sources */,
 				377A1D511AE6DA4100C5640E /* String.swift in Sources */,
