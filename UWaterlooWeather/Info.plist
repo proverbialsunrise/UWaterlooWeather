@@ -33,6 +33,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>meteocons.otf</string>
+		<string>PT Sans regular.ttf</string>
+		<string>PT Sans 700.ttf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

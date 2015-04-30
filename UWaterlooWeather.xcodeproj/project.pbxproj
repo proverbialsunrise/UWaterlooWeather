@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02CA8F884702B7A365C0566A /* Pods_UWaterlooWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1FEFB3D874DA9A1308A854 /* Pods_UWaterlooWeatherTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		377A1D511AE6DA4100C5640E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A1D501AE6DA4100C5640E /* String.swift */; };
+		37C0E28B1AF28EF400FDD157 /* PT Sans regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37C0E28A1AF28EF400FDD157 /* PT Sans regular.ttf */; };
+		37C0E28D1AF2A5CA00FDD157 /* PT Sans 700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37C0E28C1AF2A5CA00FDD157 /* PT Sans 700.ttf */; };
 		37CA39F01AE822B60073F6DA /* meteocons.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37CA39EF1AE822B60073F6DA /* meteocons.otf */; };
 		37CA39F61AE829560073F6DA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CA39F51AE829560073F6DA /* Constants.swift */; };
 		37D354EE1AE5844A00795880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D354ED1AE5844A00795880 /* AppDelegate.swift */; };
@@ -51,6 +53,8 @@
 		24847205682426D4D8ABAE50 /* Pods-UWaterlooWeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UWaterlooWeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UWaterlooWeatherTests/Pods-UWaterlooWeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		377A1D501AE6DA4100C5640E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		377A1D571AE6F31300C5640E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		37C0E28A1AF28EF400FDD157 /* PT Sans regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PT Sans regular.ttf"; path = "Fonts/PT Sans regular.ttf"; sourceTree = "<group>"; };
+		37C0E28C1AF2A5CA00FDD157 /* PT Sans 700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PT Sans 700.ttf"; path = "Fonts/PT Sans 700.ttf"; sourceTree = "<group>"; };
 		37CA39EF1AE822B60073F6DA /* meteocons.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = meteocons.otf; path = Fonts/meteocons.otf; sourceTree = "<group>"; };
 		37CA39F51AE829560073F6DA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		37D354E81AE5844A00795880 /* UWaterlooWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UWaterlooWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,8 @@
 		37CA39EE1AE8229F0073F6DA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				37C0E28C1AF2A5CA00FDD157 /* PT Sans 700.ttf */,
+				37C0E28A1AF28EF400FDD157 /* PT Sans regular.ttf */,
 				37CA39EF1AE822B60073F6DA /* meteocons.otf */,
 			);
 			name = Fonts;
@@ -269,7 +275,9 @@
 				37D354F31AE5844A00795880 /* Main.storyboard in Resources */,
 				37CA39F01AE822B60073F6DA /* meteocons.otf in Resources */,
 				37D354F81AE5844A00795880 /* LaunchScreen.xib in Resources */,
+				37C0E28D1AF2A5CA00FDD157 /* PT Sans 700.ttf in Resources */,
 				37D354F51AE5844A00795880 /* Images.xcassets in Resources */,
+				37C0E28B1AF28EF400FDD157 /* PT Sans regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

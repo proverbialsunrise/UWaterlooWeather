@@ -11,5 +11,6 @@ import Foundation
 struct Constants {
     struct Notifications {
         static let kWeatherDataAvailable = "kWeatherDataAvailable"
+        static let kWeatherDataFailed = "kWeatherDataFailed"
     }
 }

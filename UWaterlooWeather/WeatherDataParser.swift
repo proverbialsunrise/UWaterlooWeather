@@ -50,11 +50,14 @@ class WeatherDataParser : NSObject {
                 }
                 weatherCondTask.resume()
             } else {
-                println("UW Weather Data failed to acquire")
+                println("UW Weather Data failed to acquire. Retrying in 5 sec.")
                 //Post Notification
-                
+                let weatherNotification = NSNotification(name: Constants.Notifications.kWeatherDataFailed, object: nil)
                 //Try again?
-                               
+                let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(5.0 * Double(NSEC_PER_SEC)))
+                dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                    self.getData()
+                })
             }
         }
         

@@ -34,6 +34,12 @@ class ViewController: UIViewController {
         println("Weather Data Received in View Controller")
         let weatherData = notification.object as! WeatherObservation
         
+        updateWeatherUI(weatherData)
+
+        
+    }
+    
+    func updateWeatherUI(weatherData: WeatherObservation) {
         locationLabel!.text = weatherData.dataSource!
         
         temperatureLabel!.text = String(format: "%.0fº", weatherData.temperatureCelcius!)
@@ -45,15 +51,12 @@ class ViewController: UIViewController {
         } else if ((weatherData.humidexCelcius) != nil) {
             feelslikeLabel!.text = String(format: "Feels like %.1fº", weatherData.humidexCelcius!)
         } else {
-            feelslikeLabel!.text = ""
+            feelslikeLabel!.text = String(format: "Feels like %.1fº", weatherData.temperatureCelcius!)
         }
         
         windLabel!.text = String(format: "%.0f km/h %@", weatherData.windspeedKph!, weatherData.windDirection!)
-
+        
         weatherGraphic!.text = weatherData.weatherConditionCharacter()
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
