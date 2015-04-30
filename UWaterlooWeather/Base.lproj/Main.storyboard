@@ -39,26 +39,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FSc-D7-DFm">
                                 <rect key="frame" x="0.0" y="94" width="600" height="160"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xe-ch-6Ip">
-                                        <rect key="frame" x="303" y="6" width="262" height="100"/>
-                                        <fontDescription key="fontDescription" name="Meteocons" family="Meteocons" pointSize="100"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="15º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-7V-0aS">
-                                        <rect key="frame" x="24" y="8" width="263" height="96"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-7V-0aS">
+                                        <rect key="frame" x="24" y="8" width="263" height="104"/>
                                         <fontDescription key="fontDescription" name="PTSans-Bold" family="PT Sans" pointSize="80"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Feels Like 11º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8qV-lP-jVo">
-                                        <rect key="frame" x="24" y="96" width="263" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feels Like 11º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8qV-lP-jVo">
+                                        <rect key="frame" x="24" y="102" width="263" height="22"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="31 km/h NW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s1L-kY-VJ4">
-                                        <rect key="frame" x="24" y="116" width="263" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31 km/h NW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s1L-kY-VJ4">
+                                        <rect key="frame" x="24" y="124" width="263" height="22"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xe-ch-6Ip">
+                                        <rect key="frame" x="303" y="30" width="262" height="100"/>
+                                        <fontDescription key="fontDescription" name="Meteocons" family="Meteocons" pointSize="100"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -73,13 +73,20 @@
                                     <constraint firstItem="GQE-7V-0aS" firstAttribute="width" secondItem="8qV-lP-jVo" secondAttribute="width" id="W3i-ns-zWV"/>
                                     <constraint firstItem="GQE-7V-0aS" firstAttribute="top" secondItem="FSc-D7-DFm" secondAttribute="top" constant="8" id="Xj8-NY-qXz"/>
                                     <constraint firstItem="GQE-7V-0aS" firstAttribute="width" secondItem="s1L-kY-VJ4" secondAttribute="width" id="g5h-3y-Zvt"/>
-                                    <constraint firstItem="8qV-lP-jVo" firstAttribute="top" secondItem="GQE-7V-0aS" secondAttribute="bottom" constant="-8" id="gNs-1K-UYZ"/>
+                                    <constraint firstItem="8qV-lP-jVo" firstAttribute="top" secondItem="GQE-7V-0aS" secondAttribute="bottom" constant="-10" id="gNs-1K-UYZ"/>
                                     <constraint firstItem="0xe-ch-6Ip" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FSc-D7-DFm" secondAttribute="top" constant="6" id="j9D-mH-efg"/>
                                     <constraint firstItem="s1L-kY-VJ4" firstAttribute="top" secondItem="8qV-lP-jVo" secondAttribute="bottom" id="lCQ-IE-MUU"/>
+                                    <constraint firstItem="0xe-ch-6Ip" firstAttribute="top" secondItem="FSc-D7-DFm" secondAttribute="top" constant="30" id="m30-PW-2gh"/>
                                     <constraint firstItem="0xe-ch-6Ip" firstAttribute="width" secondItem="GQE-7V-0aS" secondAttribute="width" id="mG3-Qa-7BN"/>
                                     <constraint firstAttribute="trailing" secondItem="0xe-ch-6Ip" secondAttribute="trailing" constant="35" id="qCL-oL-tAB"/>
                                     <constraint firstAttribute="height" constant="160" id="rRB-xX-KUf"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Awg-D7-Tfg"/>
+                                        <exclude reference="j9D-mH-efg"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
