@@ -9,11 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     @IBOutlet weak var temperatureLabel : UILabel?
     @IBOutlet weak var windLabel : UILabel?
     @IBOutlet weak var feelslikeLabel :UILabel?
     @IBOutlet weak var weatherGraphic :UILabel?
+    @IBOutlet weak var locationLabel :UILabel?
     
     var weatherObservation : WeatherObservation?
     
@@ -31,20 +33,25 @@ class ViewController: UIViewController {
         //update UI for weather data.
         println("Weather Data Received in View Controller")
         let weatherData = notification.object as! WeatherObservation
+        
+        locationLabel!.text = weatherData.dataSource!
+        
         temperatureLabel!.text = String(format: "%.0fº", weatherData.temperatureCelcius!)
         
         
         if ((weatherData.windchillCelcius) != nil)
         {
-            feelslikeLabel!.text = String(format: "Feels like %.0fº", weatherData.windchillCelcius!)
+            feelslikeLabel!.text = String(format: "Feels like %.1fº", weatherData.windchillCelcius!)
         } else if ((weatherData.humidexCelcius) != nil) {
-            feelslikeLabel!.text = String(format: "Feels like %.0fº", weatherData.humidexCelcius!)
+            feelslikeLabel!.text = String(format: "Feels like %.1fº", weatherData.humidexCelcius!)
         } else {
             feelslikeLabel!.text = ""
         }
         
         windLabel!.text = String(format: "%.0f km/h %@", weatherData.windspeedKph!, weatherData.windDirection!)
 
+        weatherGraphic!.text = weatherData.weatherConditionCharacter()
+        
         
         
     }

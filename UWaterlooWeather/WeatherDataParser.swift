@@ -1,5 +1,5 @@
 //
-//  WeatherDataXMLParser.swift
+//  WeatherObservation
 //  UWaterlooWeather
 //
 //  Created by Daniel Johnson on 4/20/15.
@@ -27,15 +27,28 @@ class WeatherDataParser : NSObject {
         let task = NSURLSession.sharedSession().dataTaskWithURL(sourceURL) {(data, response, error) in
             //println(NSString(data: data, encoding: NSUTF8StringEncoding))
             let xmlData = SWXMLHash.parse(data);
+            
             //println(xmlData)
             let weatherData = WeatherObservation(xmlData:xmlData);
-            println("Weather Data available")
-            dispatch_async(dispatch_get_main_queue(),{
-                //Post a notification that new weather data is now available on the main thread.
-                println("Weather Data notification posted")
-                let weatherNotification = NSNotification(name: Constants.Notifications.kWeatherDataAvailable, object: weatherData)
-                NSNotificationCenter.defaultCenter().postNotification(weatherNotification)
-            });
+            println("UW Weather Data acquired")
+            
+            //Download weather condition data from the OpenWeatherMap API.
+            
+            let weatherCondTask = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string:"http://api.openweathermap.org/data/2.5/weather?id=6176823&mode=xml&APPID=03346813fdb0dc3c37b3c96518f067f3")!) {(data, response, error) in
+                
+                let xmlData = SWXMLHash.parse(data)
+                
+                weatherData.weatherConditionCode = xmlData["current"]["weather"].element?.attributes["number"]?.trimAndToInt()
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    //Post a notification that new weather data is now available on the main thread.
+                    println("Weather Data notification posted")
+                    let weatherNotification = NSNotification(name: Constants.Notifications.kWeatherDataAvailable, object: weatherData)
+                    NSNotificationCenter.defaultCenter().postNotification(weatherNotification)
+                
+                })
+            }
+            weatherCondTask.resume()
         }
         
         task.resume()
@@ -76,6 +89,9 @@ class WeatherObservation {
     var pressureKpa: Float?
     var pressureTrend: String?
     var shortwaveRadiationWpM2: Float?
+    // This piece of information does not come from the UW Weather Station XML
+    // We will either get it from another source, or infer it.
+    var weatherConditionCode: Int?
     
     init () {
         let currentDate = NSDate()
@@ -94,7 +110,6 @@ class WeatherObservation {
     }
     
     init (xmlData: XMLIndexer) {
-        println(xmlData)
         let currentObs = xmlData["current_observation"]
         dataSource = currentObs["credit"].element!.text!.trim()
         let urlString = currentObs["credit_URL"].element!.text!.trim()
@@ -127,4 +142,66 @@ class WeatherObservation {
         shortwaveRadiationWpM2 = currentObs["incoming_shortwave_radiation_WM2"].element!.text!.trimAndToFloat()
        
     }
+    
+/*    func inferWeatherCondition() -> String {
+        //How can we determine the current weather from the information in the UW Weather API?
+        //1. If there has been precipitation in the last 15 minutes, assume it is still precipitating. 
+        
+        if self.precipitation15Min_mm > 0.0 {
+            //It is either raining or snowing. 
+            if self.temperatureCelcius > 1.5 {
+                return "rain"
+            } else if self.temperatureCelcius < -1.5 {
+                return "snow"
+            } else {
+                return "snow/rain"
+            }
+        }
+        
+        return "N/A"
+    }*/
+    
+    func weatherConditionCharacter() -> String {
+        
+        let characterMap = [
+            "sunrise" : "A",
+            "sunshine" : "B",
+            "eclipse" : "D",
+            "windy" : "F",
+            "foggy" : "M",
+            "cloudy" : "Y",
+            "partly cloudy" : "H",
+            "thunderstorm" : "P",
+            "light snow" : "V",
+            "snow" : "W",
+            "light rain" : "Q",
+            "rain" : "R",
+            "hail" : "X",
+            "N/A" : ")"
+        ]
+        
+        //Weather condition codes are found http://openweathermap.org/weather-conditions
+        
+        if (weatherConditionCode != nil) {
+            
+            if weatherConditionCode >= 200 && weatherConditionCode <= 232 {
+                return characterMap["thunderstorm"]!
+            } else if weatherConditionCode >= 300 && weatherConditionCode <= 321 {
+                return characterMap["light rain"]!
+            } else if weatherConditionCode >= 500 && weatherConditionCode <= 531 {
+                return characterMap["rain"]!
+            } else if weatherConditionCode >= 600 && weatherConditionCode <= 622 {
+                return characterMap["snow"]!
+            } else if weatherConditionCode >= 800 && weatherConditionCode <= 801 {
+                return characterMap["sunshine"]!
+            } else if weatherConditionCode >= 802 && weatherConditionCode <= 803 {
+                return characterMap["partly cloudy"]!
+            } else if weatherConditionCode == 804 {
+                return characterMap["cloudy"]!
+            }
+            
+        }
+        return characterMap["N/A"]!
+    }
+    
 }
